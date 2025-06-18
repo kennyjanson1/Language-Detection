@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <nav className=" flex justify-between fixed top-0 left-0 w-full bg-white shadow px-10 py-5 mx-auto">
         <div className="flex items-center justify-between">
           <img
-            src="./img/Logo.png"
+            src="/Language-Detection/Logo.png"
             alt="Logo"
             className="w-10 h-10 mr-4 scale-120"
           />
