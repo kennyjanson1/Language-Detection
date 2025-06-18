@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import XLMRobertaTokenizer, XLMRobertaForSequenceClassification
+from pathlib import Path
 import torch
 import os
 import json
@@ -13,18 +14,23 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_FOLDER = "checkpoint-1650" 
 MODEL_PATH = os.path.join(BASE_DIR, "..", "model", "content", "results", MODEL_FOLDER)
 
-MODEL_PATH = os.path.abspath(MODEL_PATH)
+MODEL_PATH = Path(MODEL_PATH)
 
 print(f" Looking for model at: {MODEL_PATH}") 
 
 try:
     # Load model and tokenizer
     model = XLMRobertaForSequenceClassification.from_pretrained(
-        MODEL_PATH,
-        local_files_only=True
+    MODEL_PATH,
+    local_files_only=True
     )
+
     
-    tokenizer = XLMRobertaTokenizer.from_pretrained("xlm-roberta-base")
+    tokenizer = XLMRobertaTokenizer.from_pretrained(
+    MODEL_PATH,
+    local_files_only=True
+    )
+
     
     # Load config for labels
     config_path = os.path.join(MODEL_PATH, "config.json")

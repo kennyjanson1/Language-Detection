@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load dataset
-data_path = "D:\BINUS\Semester 4\Machine Learning\Language-Detector\dataset\dataset.csv"
+data_path = "C:\Users\kenny\OneDrive - Bina Nusantara\Sem 4\ML\Language-Classification-main\Language-Classification-main\dataset.csv"
 df = pd.read_csv(data_path, encoding="utf-8-sig")
 
 # Ensure dataset has required columns
