@@ -70,12 +70,10 @@ const AnimatedContent = ({
     config,
   });
 
-  const AnimatedDiv = animated('div');
-
   return (
-    <AnimatedDiv ref={ref} style={springProps}>
+    <animated.div ref={ref} style={springProps}>
       {children}
-    </AnimatedDiv>
+    </animated.div>
   );
 };
 

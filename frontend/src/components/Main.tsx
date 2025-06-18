@@ -18,7 +18,7 @@ import {
 } from "./ui/dialog";
 
 interface MainProps {
-  languageRef: RefObject<HTMLDivElement | null>;
+  languageRef: RefObject<HTMLElement>;
 }
 
 const Main = forwardRef<HTMLDivElement, MainProps>(({ languageRef }, ref) => {
@@ -465,6 +465,7 @@ const Main = forwardRef<HTMLDivElement, MainProps>(({ languageRef }, ref) => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {filteredLanguages.map((language) => (
                   <Card
+                    key={language.id}
                     className={`overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer ${getLanguageColor(
                       language.family
                     )}`}
